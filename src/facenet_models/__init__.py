@@ -16,8 +16,7 @@ class FacenetModel:
                 device = "cpu"
             self._device = device.lower()
         self._mtcnn = MTCNN()
-        self._resnet = InceptionResnetV1(pretrained="vggface2").to(device)
-        self._resnet.eval()
+        self._resnet = InceptionResnetV1(pretrained="vggface2", device=self._device).eval()
 
     def detect(self, image):
         """ Detect faces in an image.
@@ -56,4 +55,4 @@ class FacenetModel:
         crops = [crop_resize(image, [int(max(0, coord)) for coord in box], 160) for box in boxes]
         crops = (torch.tensor(crops).float() - 127.5) / 128
         with torch.no_grad():
-            return self._resnet(crops.permute(0, 3, 1, 2).to(device)).cpu().numpy()
+            return self._resnet(crops.permute(0, 3, 1, 2).to(self._device)).cpu().numpy()
