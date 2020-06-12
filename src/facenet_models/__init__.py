@@ -14,7 +14,7 @@ class FacenetModel:
             self._device = device.lower()
         self._mtcnn = MTCNN()
         self._resnet = InceptionResnetV1(pretrained="vggface2").to(device)
-        self._resnet.eval() 
+        self._resnet.eval()
 
     def detect(self, image):
         """ Detect faces in an image.
