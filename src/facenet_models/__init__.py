@@ -11,6 +11,9 @@ class FacenetModel:
         else:
             if device.lower() not in {"cuda", "cpu"}:
                 raise ValueError(f"Expected `device` to be one of (None, 'cuda', 'cpu') but got {device}")
+            if device.lower() == "cuda" and not torch.cuda.is_available():
+                print("Cuda is not available; falling back to CPU")
+                device = "cuda"
             self._device = device.lower()
         self._mtcnn = MTCNN()
         self._resnet = InceptionResnetV1(pretrained="vggface2").to(device)
