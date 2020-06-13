@@ -6,27 +6,7 @@ This is a convenience package for making available [facenet-pytorch](https://git
 
 ### Non-Anaconda Instructions
 
-Install OpenCV:
-
-```
-pip install opencv-python
-```
-
-then install facenet-pytorch:
-
-```
-pip install facenet-pytorch
-```
-
-Clone facenet_models, navigate to the resulting directory, and run
-
-```
-python setup.py develop
-```
-
-### Anaconda Instructions
-
-First, create and switch to a new environment.
+First, create and switch to a new Anaconda environment.
 
 ```
 conda create -n facenet
@@ -40,12 +20,10 @@ conda install numpy matplotlib jupyter
 ```
 
 Next, install PyTorch. 
-We use the CPU-only version, but if you have a GPU you want to use and you don't mind some extra work to use it, you can find installation instructions [here](https://pytorch.org).
-All included code should be compatible with the CUDA versions of PyTorch, but we make no guarantees.
 
 Windows and Linux installation:
 ```
-conda install pytorch torchvision cpuonly -c pytorch
+conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
 ```
 
 MacOS installation:
