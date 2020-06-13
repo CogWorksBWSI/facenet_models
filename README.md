@@ -33,12 +33,10 @@ conda create -n facenet
 conda activate facenet
 ```
 
-Install numpy, matplotlib, and jupyter
+Install numpy, matplotlib, and jupyter:
 
 ```
-conda install numpy
-conda install matplotlib
-conda install jupyter
+conda install numpy matplotlib jupyter
 ```
 
 Next, install PyTorch. 
