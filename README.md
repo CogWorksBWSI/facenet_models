@@ -4,7 +4,6 @@ This is a convenience package for making available [facenet-pytorch](https://git
 
 ## Installation instructions 
 
-### Non-Anaconda Instructions
 
 First, create and switch to a new Anaconda environment.
 
